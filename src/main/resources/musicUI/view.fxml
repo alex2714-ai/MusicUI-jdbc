@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="musicUI.Controller">
+
+
+    <center>
+        <TableView fx:id="mainTable" editable="true" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+
+            <columns>
+                <TableColumn prefWidth="${mainTable.width*0.1}" text="ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="id" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="columnName" prefWidth="${mainTable.width*0.9}" text="Name" />
+                <!--                <TableColumn prefWidth="${artistTable.width}" text="Songs" >-->
+                <!--                    <cellValueFactory>-->
+                <!--                        <PropertyValueFactory property="title"/>-->
+                <!--                    </cellValueFactory>-->
+                <!--                </TableColumn>-->
+            </columns>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+    <right>
+        <VBox fx:id="vbox" alignment="CENTER" prefHeight="200.0" prefWidth="170.00" spacing="20.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="artistBT" maxWidth="Infinity" mnemonicParsing="false" onAction="#listArtist" text="List Artists" />
+                <Button fx:id="albumBT" maxWidth="Infinity" mnemonicParsing="false" onAction="#listAlbumsForArtist" text="Show Albums (artist)" />
+                <Button fx:id="songsBT" maxWidth="Infinity" mnemonicParsing="false" onAction="#listSongsForAlbum" text="Show Songs (album)" visible="false" />
+            </children>
+            <BorderPane.margin>
+                <Insets right="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" visible="false">
+                    <HBox.margin>
+                        <Insets left="50.0" />
+                    </HBox.margin>
+                </ProgressBar>
+            </children>
+        </HBox>
+    </bottom>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <Button fx:id="insertBT" mnemonicParsing="false" onAction="#Actions" text="Insert Artist" />
+            <Button fx:id="updateBT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#Actions" text="Update Artist" />
+            <Button fx:id="deleteBT" layoutX="80.0" layoutY="10.0" mnemonicParsing="false" onAction="#Actions" text="Delete song" />
+
+        </items>
+      </ToolBar>
+   </top>
+</BorderPane>
